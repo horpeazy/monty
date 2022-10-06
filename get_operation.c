@@ -1,24 +1,23 @@
 #include "monty.h"
 
 /**
- * get_op_function - gets the op fucntions
- * @name: name of the fucntion
+ * get_op - gets the op fucntions
+ * @name: name of the function
  * Return: a pointer to the fucntion
  */
-int get_op(char *name)
+void (*get_op(char *name))(stack_t **, unsigned int)
 {
 	int i = 0;
-
 	instruction_t ops[] = {
-		"push": _push,
-		NULL: NULL
-	}
+		{"pall", pall},
+		{NULL, NULL}
+	};
 
 	while (ops[i].opcode != NULL)
 	{
 		if (strcmp(name, ops[i].opcode) == 0)
-			return ops[i].f;
-		i++
+			return (ops[i].f);
+		i++;
 	}
 
 	return (NULL);

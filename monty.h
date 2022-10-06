@@ -4,7 +4,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-
+#include <ctype.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -37,9 +42,18 @@ typedef struct instruction_s
 } instruction_t;
 
 
-/* Helper Functions */
+/* Stack Functions */
 int add_node(stack_t **head, int value);
-int delete_node(stack **head);
+int delete_node(stack_t **head);
 void free_stack(stack_t *head);
+
+/* Stack Operations */
+int push(stack_t **stack, unsigned int line_number, char *n);
+void pall(stack_t **stack, unsigned int line_number);
+
+/* Miscellaneous */
+void (*get_op(char *name))(stack_t **stack, unsigned int line_number);
+int is_number(char *token);
+void run_code(char *buf);
 
 #endif
