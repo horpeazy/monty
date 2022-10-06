@@ -33,7 +33,7 @@ int push(stack_t **stack, unsigned int line_number, char *n)
 		return (-1);
 	if (!is_number(n))
 	{
-		printf("L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -75,7 +75,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !*stack)
 	{
-		printf("L%u: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 

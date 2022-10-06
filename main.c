@@ -13,27 +13,27 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		printf("Usage: monty filname\n");
+		fprintf(stderr ,"USAGE: monty filname\n");
 		exit(EXIT_FAILURE);
 	}
 
 	buf = malloc(sizeof(char) * 10000);
 	if (buf == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error: can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
 	if (read(fd, buf, 10000) == -1)
 	{
-		printf("Error: can't read to buffer\n");
+		fprintf(stderr, "Error: Can't read to buffer\n");
 		close(fd);
 		free(buf);
 		exit(EXIT_FAILURE);
@@ -83,7 +83,7 @@ void run_code(char *buf)
 			else
 			{
 				free_stack(stack);
-				printf("L%d: unknown instruction %s\n", line, token);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line, token);
 				exit(EXIT_FAILURE);
 			}
 		}
