@@ -10,6 +10,7 @@ void (*get_op(char *name))(stack_t **, unsigned int)
 	int i = 0;
 	instruction_t ops[] = {
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
