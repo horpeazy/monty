@@ -24,3 +24,26 @@ void rotl(stack_t **stack, unsigned int line_number)
 	node->prev = temp;
 	node->next = NULL;
 }
+
+/**
+ * rotr - rotates the stack
+ * @stack: pointer to stack
+ * @line_number: line number of opcode
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+
+	(void) line_number;
+	temp = *stack;
+
+	while (temp->next)
+		temp = temp->next;
+	temp->prev->next = NULL;
+	temp->next = *stack;
+	temp->prev = NULL;
+	*stack = temp;
+}
