@@ -80,6 +80,8 @@ void run_code(char *buf)
 		{
 			if (get_op(token) != NULL)
 				get_op(token)(&stack, line);
+			else if (token[0] == '#')
+				nop(&stack, line);
 			else
 			{
 				free_stack(stack);
