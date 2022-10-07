@@ -57,6 +57,8 @@ void _mod(stack_t **stack, unsigned int line_number)
  */
 void pchar(stack_t **stack, unsigned int line_number)
 {
+	stack_t *node;
+
 	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
@@ -69,7 +71,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c\n", (*stack)->n);
+	node = *stack;
+	printf("%c\n", node->n);
 }
 
 /**

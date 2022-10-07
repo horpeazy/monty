@@ -59,6 +59,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	(void) line_number;
 	node = *stack;
+
 	while (node)
 	{
 		printf("%d\n", node->n);
@@ -98,6 +99,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 
 	node = *stack;
+
 	*stack = (*stack)->next;
 	free(node);
 }

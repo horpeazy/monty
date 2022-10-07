@@ -23,6 +23,8 @@ void (*get_op(char *name))(stack_t **, unsigned int)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 

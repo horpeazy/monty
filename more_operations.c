@@ -50,14 +50,9 @@ void _add(stack_t **stack, unsigned int line_number)
  * @stack: stack
  * @line_number: line number
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)))
 {
-	int i = 0;
-	stack_t *node = *stack;
-
-	(void) line_number;
-	if (i == 1)
-		printf("%d\n", node->n);
+	return;
 }
 
 /**

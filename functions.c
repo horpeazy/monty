@@ -8,7 +8,7 @@
  */
 int add_node(stack_t **head, int value)
 {
-	stack_t *node;
+	stack_t *node, *temp;
 
 	if (!head)
 		return (-1);
@@ -21,36 +21,33 @@ int add_node(stack_t **head, int value)
 	}
 
 	node->n = value;
-	node->prev = NULL;
-	node->next = *head;
-	if (*head != NULL)
-		(*head)->prev = node;
-	*head = node;
+
+	if (mode == 0)
+	{
+		node->next = *head;
+		node->prev = NULL;
+		if (*head != NULL)
+			(*head)->prev = node;
+		*head = node;
+	}
+	else
+	{
+		temp = *head;
+		if (!temp)
+		{
+			node->prev = NULL;
+			node->next = NULL;
+			*head = node;
+			return (1);
+		}
+		while (temp->next)
+			temp = temp->next;
+		node->next = NULL;
+		node->prev = temp;
+		temp->next = node;
+	}
 
 	return (1);
-}
-
-/**
- * delete_node - removes the top of the stack
- * @head: pointer to the head node
- * Return: 0 on success, -1 on failure
- */
-int delete_node(stack_t **head)
-{
-	stack_t *node;
-
-	if (!head)
-		return (-1);
-
-	if (*head == NULL)
-		return (0);
-
-	node = *head;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
-	free(node);
-
-	return (0);
 }
 
 /**

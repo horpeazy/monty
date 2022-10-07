@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <string.h>
 
+extern int mode;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -54,7 +55,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void _add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)));
 void _sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
@@ -63,6 +64,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)));
+void queue(stack_t **stack __attribute__((unused)), unsigned int line_number __attribute__((unused)));
 
 /* Miscellaneous */
 void (*get_op(char *name))(stack_t **stack, unsigned int line_number);
