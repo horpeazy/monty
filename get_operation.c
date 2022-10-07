@@ -13,9 +13,10 @@ void (*get_op(char *name))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add},
+		{"add", _add},
 		{"nop", nop},
-		{"sub", sub},
+		{"sub", _sub},
+		{"div", _div},
 		{NULL, NULL}
 	};
 

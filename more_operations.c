@@ -24,11 +24,11 @@ void swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * add - adds the top two elements
+ * _add - adds the top two elements
  * @stack: stack to add
  * @line_number: line number of operation
  */
-void add(stack_t **stack, unsigned int line_number)
+void _add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 
@@ -61,11 +61,11 @@ void nop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - subtracts the top elements
+ * _sub - subtracts the top elements
  * @stack: stack to sub
  * @line_number: line number
  */
-void sub(stack_t **stack, unsigned int line_number)
+void _sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 
@@ -79,5 +79,33 @@ void sub(stack_t **stack, unsigned int line_number)
 	*stack = node->next;
 	(*stack)->prev = NULL;
 	(*stack)->n = (*stack)->n - node->n;
+	free(node);
+}
+
+/**
+ * _div - subtracts the top elements
+ * @stack: stack to sub
+ * @line_number: line number
+ */
+void _div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node;
+
+	if (!stack || !*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	node = *stack;
+	*stack = node->next;
+	(*stack)->prev = NULL;
+	(*stack)->n = (*stack)->n / node->n;
 	free(node);
 }
