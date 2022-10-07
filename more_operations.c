@@ -44,3 +44,18 @@ void add(stack_t **stack, unsigned int line_number)
 	(*stack)->n = (*stack)->n + node->n;
 	free(node);
 }
+
+/**
+ * nop - doesn't do anything
+ * @stack: stack
+ * @line_number: line number
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	int i = 0;
+	stack_t *node = *stack;
+
+	(void) line_number;
+	if (i == 1)
+		printf("%d\n", node->n);
+}
