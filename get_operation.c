@@ -19,6 +19,7 @@ void (*get_op(char *name))(stack_t **, unsigned int)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
