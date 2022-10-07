@@ -60,6 +60,7 @@ void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 /* Miscellaneous */
 void (*get_op(char *name))(stack_t **stack, unsigned int line_number);
